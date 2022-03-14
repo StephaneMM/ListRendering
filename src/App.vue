@@ -54,7 +54,25 @@ export default {
     },
   },
   methods: {
+    sortContacts() {
+      if (this.sorting) {
+        return this.contacts.sort((a, b) => {
+          this.sorting = !this.sorting;
 
+          if (a.fullName > b.fullName) return -1;
+          if (a.fullName < b.fullName) return 1;
+          return 0;
+        });
+      } else {
+        return this.contacts.sort((a, b) => {
+          this.sorting = !this.sorting;
+
+          if (a.fullName < b.fullName) return -1;
+          if (a.fullName > b.fullName) return 1;
+          return 0;
+        });
+      }
+    },
     useSearch(search) {
       this.search = search;
     },
