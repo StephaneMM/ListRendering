@@ -25,7 +25,7 @@ export default {
       this.$emit("changeDisplayMode");
     },
     icon() {
-      return this.listView ? icons.list : icons.cards;
+      return this.listView ? icons.cards : icons.list;
     },
   },
 };
