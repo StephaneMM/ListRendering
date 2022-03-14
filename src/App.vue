@@ -7,6 +7,14 @@
 
       <ListButton @changeDisplayMode="changeDisplayMode" :listView="listView" />
     </div>
+
+    <div v-if="!listView" class="contact-container contact-cards-container">
+      <ContactCard
+        v-for="contact in contacts"
+        :key="contact.id"
+        :contact="contact"
+      />
+    </div>
   </div>
 </template>
 
@@ -16,7 +24,7 @@ import axios from "axios";
 import SortButton from "./components/SortButton/";
 import ListButton from "./components/ListButton/";
 import InputField from "./components/InputField/";
-
+import ContactCard from "./components/ContactCard/";
 
 export default {
   name: "App",
@@ -32,6 +40,7 @@ export default {
     ListButton,
     InputField,
     SortButton,
+    ContactCard,
   },
 
 
@@ -57,6 +66,7 @@ export default {
     } catch (error) {
       console.log(error.response);
     }
+  },
 };
 </script>
 
@@ -72,7 +82,23 @@ export default {
   justify-content: space-between;
 }
 
+.contact-container {
+  display: flex;
+  width: 100%;
+  max-width: 840px;
+  padding: 0px 45px;
+}
+.contact-cards-container {
+  /* box-sizing: border-box;
+  justify-content: space-between; */
+  flex-wrap: wrap;
 
+  width: 100%;
+
+
+  margin: 0 auto;
+
+  gap: 50px 60px;
 }
 
 </style>

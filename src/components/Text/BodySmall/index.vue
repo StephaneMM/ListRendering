@@ -2,7 +2,6 @@
   <p class="text"><slot /></p>
 </template>
 <script>
-
 export default {};
 </script>
 <style scoped>
@@ -13,6 +12,9 @@ export default {};
   font-size: 14px;
   line-height: 17px;
   /* identical to box height */
+
+  margin: 0;
+  padding: 0;
 
   color: #292929;
 }

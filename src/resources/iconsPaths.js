@@ -3,4 +3,6 @@ export default {
   sorting: "/icons/Sorting-icon.png",
   cards: "/icons/Thumbnail-view-icon.png",
   search: "/icons/Vector.png",
+  phone: "/icons/phone-icon.png",
+  mail: "icons/mail-icon.png",
 };
