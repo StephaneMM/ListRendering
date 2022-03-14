@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <PageTitle class="title">Meet the Team </PageTitle>
     <div class="contacts-list-settings">
       <div class="settings-right-side">
         <SortButton @sortContacts="sortContacts" />
@@ -30,6 +31,7 @@
 <script>
 import axios from "axios";
 
+import PageTitle from "./components/Text/PageTitle/";
 import SortButton from "./components/SortButton/";
 import ListButton from "./components/ListButton/";
 import InputField from "./components/InputField/";
@@ -47,6 +49,7 @@ export default {
   }),
 
   components: {
+    PageTitle,
     ListButton,
     InputField,
     SortButton,
