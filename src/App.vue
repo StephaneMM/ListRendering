@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 import SortButton from "./components/SortButton/";
 import ListButton from "./components/ListButton/";
 import InputField from "./components/InputField/";
@@ -32,6 +34,29 @@ export default {
     SortButton,
   },
 
+
+  async created() {
+    let simpleContactList = [];
+
+    try {
+      const response = await axios.get(`https://randomuser.me/api/?results=50`);
+      const rawContacts = response.data.results;
+      rawContacts.map((contact, i) =>
+        simpleContactList.push({
+          id: i,
+          fullName: `${contact.name.first} ${contact.name.last}`,
+          city: contact.location.city,
+          email: contact.email,
+          picture: contact.picture.large,
+          phone: contact.phone,
+        })
+      );
+      // console.log(simpleContactList);
+      this.contacts = simpleContactList;
+      // console.log(this.contacts);
+    } catch (error) {
+      console.log(error.response);
+    }
 };
 </script>
 
@@ -46,6 +71,7 @@ export default {
   align-items: center;
   justify-content: space-between;
 }
+
 
 }
 
