@@ -119,8 +119,7 @@ export default {
 <style scope>
 .contacts-list-settings {
   width: 100%;
-  max-width: 840px;
-  padding: 0px 45px;
+  max-width: 750px;
   margin: 0 auto;
 
   display: flex;
@@ -131,13 +130,12 @@ export default {
 .contact-container {
   display: flex;
   width: 100%;
-  max-width: 840px;
-  padding: 0px 45px;
+  max-width: 900px;
 }
 
 .contact-cards-container {
-  /* box-sizing: border-box;
-  justify-content: space-between; */
+  box-sizing: border-box;
+  justify-content: space-around;
   flex-wrap: wrap;
 
   width: 100%;
@@ -150,6 +148,13 @@ export default {
 
 .contact-rows-container {
   flex-direction: column;
-  gap: 18px;
+  align-items: center;
+
+  gap: 18px 0;
+  margin: 0 auto;
+}
+
+.settings-right-side {
+  display: flex;
 }
 </style>
