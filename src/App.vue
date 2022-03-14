@@ -10,7 +10,7 @@
 
     <div v-if="!listView" class="contact-container contact-cards-container">
       <ContactCard
-        v-for="contact in contacts"
+        v-for="contact in filteredContacts"
         :key="contact.id"
         :contact="contact"
       />
@@ -42,7 +42,23 @@ export default {
     SortButton,
     ContactCard,
   },
+  computed: {
+    filteredContacts() {
+      return this.contacts.filter((contact) => {
+        return contact.fullName
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .match(this.search.toLowerCase());
+      });
+    },
+  },
+  methods: {
 
+    useSearch(search) {
+      this.search = search;
+    },
+  },
 
   async created() {
     let simpleContactList = [];
