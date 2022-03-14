@@ -15,6 +15,13 @@
         :contact="contact"
       />
     </div>
+    <div v-if="listView" class="contact-container contact-rows-container">
+      <ContactRow
+        v-for="contact in filteredContacts"
+        :key="contact.id"
+        :contact="contact"
+      />
+    </div>
   </div>
 </template>
 
@@ -25,6 +32,7 @@ import SortButton from "./components/SortButton/";
 import ListButton from "./components/ListButton/";
 import InputField from "./components/InputField/";
 import ContactCard from "./components/ContactCard/";
+import ContactRow from "./components/ContactRow/";
 
 export default {
   name: "App",
@@ -41,6 +49,7 @@ export default {
     InputField,
     SortButton,
     ContactCard,
+    ContactRow,
   },
   computed: {
     filteredContacts() {
@@ -75,6 +84,9 @@ export default {
     },
     useSearch(search) {
       this.search = search;
+    },
+    changeDisplayMode() {
+      this.listView = !this.listView;
     },
   },
 
@@ -122,6 +134,7 @@ export default {
   max-width: 840px;
   padding: 0px 45px;
 }
+
 .contact-cards-container {
   /* box-sizing: border-box;
   justify-content: space-between; */
@@ -135,4 +148,8 @@ export default {
   gap: 50px 60px;
 }
 
+.contact-rows-container {
+  flex-direction: column;
+  gap: 18px;
+}
 </style>
