@@ -1,9 +1,11 @@
 <template>
   <div id="app">
     <div class="contacts-list-settings">
-      <SortButton @sortContacts="sortContacts" />
+      <div class="settings-right-side">
+        <SortButton @sortContacts="sortContacts" />
 
-      <InputField @useSearch="useSearch" :search="search" />
+        <InputField @useSearch="useSearch" :search="search" />
+      </div>
 
       <ListButton @changeDisplayMode="changeDisplayMode" :listView="listView" />
     </div>
