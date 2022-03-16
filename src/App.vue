@@ -1,30 +1,40 @@
 <template>
   <div id="app">
     <PageTitle class="title">Meet the Team </PageTitle>
+    <InputField
+      id="search-input-header"
+      @useSearch="useSearch"
+      :search="search"
+    />
     <div class="contacts-list-settings">
       <div class="settings-right-side">
         <SortButton @sortContacts="sortContacts" />
 
-        <InputField @useSearch="useSearch" :search="search" />
+        <InputField
+          id="search-input-settings"
+          @useSearch="useSearch"
+          :search="search"
+        />
       </div>
 
       <ListButton @changeDisplayMode="changeDisplayMode" :listView="listView" />
     </div>
-
-    <div v-if="!listView" class="contact-container contact-cards-container">
-      <ContactCard
-        v-for="contact in filteredContacts"
-        :key="contact.id"
-        :contact="contact"
-      />
-    </div>
-    <div v-if="listView" class="contact-container contact-rows-container">
-      <ContactRow
-        v-for="contact in filteredContacts"
-        :key="contact.id"
-        :contact="contact"
-      />
-    </div>
+    <main>
+      <div v-if="!listView" class="contact-container contact-cards-container">
+        <ContactCard
+          v-for="contact in filteredContacts"
+          :key="contact.id"
+          :contact="contact"
+        />
+      </div>
+      <div v-if="listView" class="contact-container contact-rows-container">
+        <ContactRow
+          v-for="contact in filteredContacts"
+          :key="contact.id"
+          :contact="contact"
+        />
+      </div>
+    </main>
   </div>
 </template>
 
@@ -122,6 +132,8 @@ export default {
 </script>
 
 <style scope>
+@import "./styles/global.css";
+
 .contacts-list-settings {
   width: 100%;
   max-width: 750px;
@@ -135,7 +147,7 @@ export default {
 .contact-container {
   display: flex;
   width: 100%;
-  max-width: 900px;
+  max-width: 810px;
 }
 
 .contact-cards-container {
@@ -161,5 +173,36 @@ export default {
 
 .settings-right-side {
   display: flex;
+  align-items: center;
+}
+
+#search-input-header {
+  display: none;
+}
+
+@media only screen and (max-width: 450px) {
+  #search-input-settings {
+    display: none;
+  }
+
+  #search-input-header {
+    display: flex;
+    align-self: center;
+    /* max-width: 0; */
+  }
+
+  .contacts-list-settings {
+    padding: 0 40px;
+  }
+
+  .contact-container {
+    padding: 0 20px;
+  }
+}
+
+@media only screen and (max-width: 830px) {
+  .contacts-list-settings {
+    padding: 0 40px;
+  }
 }
 </style>

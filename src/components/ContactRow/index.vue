@@ -9,7 +9,11 @@
       </div>
     </div>
 
-    <ContactIcons :emailAdress="contact.email" :phoneNumber="contact.phone" />
+    <ContactIcons
+      class="contact-icons"
+      :emailAdress="contact.email"
+      :phoneNumber="contact.phone"
+    />
     <div class="background-white"></div>
   </div>
 </template>
@@ -101,5 +105,13 @@ export default {
   border-top-left-radius: 42px;
   background-color: white;
   z-index: 0;
+}
+
+@media screen and (max-width: 450px) {
+  .contact-icons {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+  }
 }
 </style>

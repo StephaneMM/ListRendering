@@ -33,15 +33,11 @@ export default {
     contact: {},
   },
 
-  // computed: {
-  // },
 };
 </script>
 
 <style scoped>
 .card-container {
-  box-sizing: border-box;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -63,6 +59,7 @@ export default {
   background-size: 104%;
 }
 
+
 .infos {
   display: flex;
   flex-direction: column;
@@ -71,6 +68,7 @@ export default {
 
 .city {
   margin-bottom: 15px;
+  width: 100%;
 }
 
 @media screen and (max-width: 830px) {
@@ -92,5 +90,22 @@ export default {
   }
 }
 
+@media screen and (max-width: 450px) {
+  .card-container {
+    width: 8.4375em;
+    height: 13.75em;
 
+    min-width: 0;
+    min-height: 0;
+
+    padding-top: 2.0625em;
+    padding-bottom: 0.90625em;
+
+    margin: 0.8125em 0.9375em;
+  }
+
+  .city {
+    margin-bottom: 8.75px;
+  }
+}
 </style>
