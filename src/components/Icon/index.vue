@@ -1,7 +1,7 @@
 <template>
   <div class="button" @click="someoneClicked">
     <div class="img-container">
-      <img :src="icon" :alt="alt" width="20" />
+      <img :src="icon" :alt="alt" :width="pxWidth" />
     </div>
   </div>
 </template>
@@ -23,6 +23,11 @@ export default {
     alt: {
       type: String,
       default: "icon",
+    },
+
+    pxWidth: {
+      type: Number,
+      default: 20,
     },
   },
   methods: {

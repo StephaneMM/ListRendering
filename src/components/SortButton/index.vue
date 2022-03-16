@@ -1,7 +1,7 @@
 <template>
   <div class="button" @click="someoneClicked">
     <div class="img-container">
-      <img src="/icons/Sorting-icon.png" alt="icon" width="18" />
+      <img src="/icons/Sorting-icon.png" alt="icon" width="32" />
     </div>
   </div>
 </template>
@@ -25,15 +25,9 @@ export default {
   border: 0;
   display: flex;
   align-items: center;
-  align-content: center;
   justify-content: center;
-  justify-items: center;
-  user-select: none;
+
+  top: 4px;
 }
 
-button:enabled:active {
-  transform: scale(0.98) translateY(2px);
-  opacity: 0.9;
-  transition: transform 0.05s;
-}
 </style>

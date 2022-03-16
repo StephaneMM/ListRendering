@@ -53,13 +53,9 @@ export default {
 
 <style scoped>
 .card-container {
-  box-sizing: border-box;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  position: relative;
 
   border-radius: 20px;
 
