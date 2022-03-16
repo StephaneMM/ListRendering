@@ -1,7 +1,8 @@
 <template>
   <div class="card-container">
     <Body> {{ contact.fullName }} </Body>
-    <AvatarPicture :image="contact.picture" />
+
+    <AvatarPicture :image="contact.picture" :pxSize="100" />
 
     <div class="infos">
       <BodySmall class="city"> {{ contact.city }} </BodySmall>
