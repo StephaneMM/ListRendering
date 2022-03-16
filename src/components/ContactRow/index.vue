@@ -1,5 +1,5 @@
 <template>
-  <div class="card-container">
+  <div class="card-container" :style="cssVars">
     <div class="contact-main">
       <AvatarPicture :image="contact.picture" />
 
@@ -20,6 +20,7 @@
 
 <script>
 import icons from "@/resources/iconsPaths";
+import backgroundColor from "@/resources/rowBackgroundColors";
 
 import Body from "../Text/Body/";
 import AvatarPicture from "../AvatarPicture/";
@@ -38,6 +39,7 @@ export default {
 
   props: {
     contact: { require: true },
+    listview: {},
   },
 
   computed: {
@@ -46,6 +48,14 @@ export default {
     },
     phoneIcon() {
       return icons.phone;
+    },
+    selectedBackground() {
+      return backgroundColor[this.contact.id % backgroundColor.length];
+    },
+    cssVars() {
+      return {
+        "--background-color": `#${this.selectedBackground}`,
+      };
     },
   },
 };
@@ -71,7 +81,7 @@ export default {
   /* background-position: center; */
   overflow: hidden;
 
-  background-color: #a7b8a8;
+  background-color: var(--background-color);
 }
 
 .card-container * {
