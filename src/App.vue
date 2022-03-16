@@ -77,6 +77,7 @@ export default {
       });
     },
   },
+
   methods: {
     sortContacts() {
       if (this.sorting) {
@@ -121,9 +122,7 @@ export default {
           phone: contact.phone,
         })
       );
-      // console.log(simpleContactList);
       this.contacts = simpleContactList;
-      // console.log(this.contacts);
     } catch (error) {
       console.log(error.response);
     }
@@ -151,16 +150,11 @@ export default {
 }
 
 .contact-cards-container {
-  box-sizing: border-box;
   justify-content: space-around;
   flex-wrap: wrap;
-
   width: 100%;
 
-
   margin: 0 auto;
-
-  gap: 50px 60px;
 }
 
 .contact-rows-container {
