@@ -1,5 +1,5 @@
-export default {
-  green: "/images/Card-background-Greenish.svg",
-  orange: "/images/Card-background-Orangish.svg",
-  grey: "/images/Card-background-Greyish.png",
-};
+export default [
+  "/images/Card-background-list-greenish.svg",
+  "/images/Card-background-list-greyish.svg",
+  "/images/Card-background-list-orangish.svg",
+];
