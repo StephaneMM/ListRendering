@@ -33,7 +33,6 @@ export default {
 
   computed: {
     selectedBackground() {
-      console.log(backgroundImage[this.contact.id % backgroundImage.length]);
       return backgroundImage[this.contact.id % backgroundImage.length];
     },
     cssVars() {
