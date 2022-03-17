@@ -1,5 +1,5 @@
 <template>
-  <div class="card-container">
+  <div class="card-container" :style="cssVars">
     <Body> {{ contact.fullName }} </Body>
 
     <AvatarPicture :image="contact.picture" :pxSize="100" />
@@ -12,6 +12,8 @@
 </template>
 
 <script>
+import backgroundImage from "@/resources/cardsBackgroundPaths";
+
 import Body from "../Text/Body/";
 import AvatarPicture from "../AvatarPicture/";
 import BodySmall from "../Text/BodySmall/";
@@ -29,10 +31,20 @@ export default {
     ContactIcons,
   },
 
+  computed: {
+    selectedBackground() {
+      console.log(backgroundImage[this.contact.id % backgroundImage.length]);
+      return backgroundImage[this.contact.id % backgroundImage.length];
+    },
+    cssVars() {
+      return {
+        "--background-image": `url(${this.selectedBackground})`,
+      };
+    },
+  },
   props: {
     contact: {},
   },
-
 };
 </script>
 
@@ -54,11 +66,10 @@ export default {
 
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 
-  background: url("/images/Card-background-Greenish.svg");
+  background-image: var(--background-image);
   background-position: center;
   background-size: 104%;
 }
-
 
 .infos {
   display: flex;
